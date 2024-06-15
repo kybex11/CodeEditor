@@ -1,5 +1,4 @@
 Screen {
-    background: #242424;  
     &:inline {
         height: 50vh;
     }

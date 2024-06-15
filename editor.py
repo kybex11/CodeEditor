@@ -58,7 +58,7 @@ class Editor(App):
             self.sub_title = "ERROR"
         else:
             code_view.update(syntax)
-            self.query_one("#code-view").scroll_home(animate=False)
+            self.query_one("#code-view").scroll_home(animate=True)
             self.sub_title = str(event.path)
 
     def action_toggle_files(self) -> None:

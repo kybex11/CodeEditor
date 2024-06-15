@@ -1,5 +1,5 @@
 Screen {
-    background: #242424;
+    background: #242424;  
     &:inline {
         height: 50vh;
     }
@@ -19,12 +19,12 @@ Editor.-show-tree #tree-view {
     max-width: 50%;
 }
 
-
 #code-view {
     overflow: auto scroll;
     min-width: 100%;
     hatch: right $primary;   
 }
+
 #code {
     width: auto;
 }

@@ -1,4 +1,5 @@
 import sys
+import json 
 
 from rich.syntax import Syntax
 from rich.traceback import Traceback
@@ -32,7 +33,12 @@ class Editor(App):
         yield Footer()
 
     def on_mount(self) -> None:
+        with open('config.json', 'r') as f:
+            config = json.load(f)
+            background_color = config.get('background', '')
+         
         self.query_one(DirectoryTree).focus()
+        self.screen.styles.background = background_color
 
     def on_directory_tree_file_selected(
         self, event: DirectoryTree.FileSelected

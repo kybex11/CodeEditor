@@ -1,5 +1,5 @@
 Screen {
-    background: $surface-darken-1;
+    background: #242424;
     &:inline {
         height: 50vh;
     }

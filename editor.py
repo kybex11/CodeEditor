@@ -10,11 +10,9 @@ from textual.widgets import DirectoryTree, Footer, Header, Static
 
 
 class Editor(App):
-    """Textual code browser app."""
 
     CSS_PATH = "editor.tcss"
     BINDINGS = [
-        ("d", "toggle_dark", "Toggle Theme"),
         ("f", "toggle_files", "Toggle Files"),
         ("q", "quit", "Quit"),
     ]
@@ -22,11 +20,9 @@ class Editor(App):
     show_tree = var(True)
 
     def watch_show_tree(self, show_tree: bool) -> None:
-        """Called when show_tree is modified."""
         self.set_class(show_tree, "-show-tree")
 
-    def compose(self) -> ComposeResult:
-        """Compose our UI."""
+    def compose(self) -> ComposeResult:"
         path = "./" if len(sys.argv) < 2 else sys.argv[1]
         yield Header()
         with Container():
@@ -38,13 +34,9 @@ class Editor(App):
     def on_mount(self) -> None:
         self.query_one(DirectoryTree).focus()
 
-    def action_toggle_dark(self) -> None:
-        self.dark = not self.dark
-
     def on_directory_tree_file_selected(
         self, event: DirectoryTree.FileSelected
     ) -> None:
-        """Called when the user click a file in the directory tree."""
         event.stop()
         code_view = self.query_one("#code", Static)
         try:
@@ -64,7 +56,6 @@ class Editor(App):
             self.sub_title = str(event.path)
 
     def action_toggle_files(self) -> None:
-        """Called in response to key binding."""
         self.show_tree = not self.show_tree
 
 

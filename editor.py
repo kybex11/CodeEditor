@@ -22,7 +22,7 @@ class Editor(App):
     def watch_show_tree(self, show_tree: bool) -> None:
         self.set_class(show_tree, "-show-tree")
 
-    def compose(self) -> ComposeResult:"
+    def compose(self) -> ComposeResult:
         path = "./" if len(sys.argv) < 2 else sys.argv[1]
         yield Header()
         with Container():
